@@ -52,10 +52,9 @@ class urlApp(webapp.webApp):
                 return (returnCode, htmlAnswer)
 
             else:
-                body = body.split("%3A%2F%2F")[0] + "://" + body.split("%3A%2F%2F")[1]
                 while body.find("%2F") != -1:
                     body = body.replace("%2F", "/")
-
+                body = "http://" + body
                 if body in self.url:
                     indx = self.url[body]
                     print str(self.url[body]) + " Estoy en el metodo post"
